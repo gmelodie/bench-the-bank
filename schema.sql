@@ -44,3 +44,20 @@ CREATE TABLE "TRANSACTION"(
     CONSTRAINT CK_TRANSACTION_0 CHECK (("TYPE" = 1 AND RECIPIENT_ACCOUNT IS NULL AND RECIPIENT_ACCOUNT_TYPE IS NULL)
         OR ("TYPE" <> 1 AND RECIPIENT_ACCOUNT IS NOT NULL AND RECIPIENT_ACCOUNT_TYPE IS NOT NULL))
 );
+
+CREATE OR REPLACE FUNCTION public.insert_first_account()
+    RETURNS trigger
+    LANGUAGE 'plpgsql'
+AS $BODY$
+begin
+	-- inserir conta para o usuário
+	INSERT INTO "account" VALUES (new.account, 0, DEFAULT, DEFAULT);
+    return new;
+end
+$BODY$;
+
+CREATE TRIGGER tr_user_ad AFTER INSERT
+	ON "user"
+	FOR EACH ROW
+	EXECUTE FUNCTION insert_first_account();
+
