@@ -1,0 +1,22 @@
+{
+  "name": "bench-the-bank",
+  "version": "1.0.0",
+  "description": "Site de banco utilizado em uma atividade de ataque e defesa da frente de WEB do Ganesh.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrunoxD/bench-the-bank.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrunoxD/bench-the-bank/issues"
+  },
+  "homepage": "https://github.com/BrunoxD/bench-the-bank#readme",
+  "dependencies": {
+    "graphql": "^14.5.8"
+  }
+}
